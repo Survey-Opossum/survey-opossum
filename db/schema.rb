@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150211212244) do
 
   create_table "answers", force: :cascade do |t|
-    t.string   "text"
+    t.text     "text"
     t.integer  "question_id"
     t.integer  "taker_id"
     t.datetime "created_at",  null: false
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 20150211212244) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string   "text"
-    t.string   "description"
+    t.text     "text"
+    t.text     "description"
     t.integer  "order_number"
     t.integer  "survey_id"
     t.integer  "question_type_id"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150211212244) do
 
   create_table "surveys", force: :cascade do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.integer  "author_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
