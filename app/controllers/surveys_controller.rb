@@ -1,5 +1,6 @@
 class SurveysController < ApplicationController
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
+  before_action :set_question_types, only: [:new, :create, :show, :edit, :update, :destroy]
 
   # GET /surveys
   # GET /surveys.json
@@ -15,7 +16,6 @@ class SurveysController < ApplicationController
   # GET /surveys/new
   def new
     @survey = Survey.new
-    @question_types = QuestionType.all
     @survey.questions.build
   end
 
@@ -56,6 +56,10 @@ class SurveysController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_survey
       @survey = Survey.find(params[:id])
+    end
+
+    def set_question_types
+      @question_types = QuestionType.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
