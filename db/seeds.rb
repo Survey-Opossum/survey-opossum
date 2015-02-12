@@ -8,3 +8,9 @@
 
 Author.create(name:'author', email:'author@author.com', password:'password')
 Author.create(name:'author2', email:'author2@author2.com', password:'password')
+
+
+QuestionType.create(name: 'yes/no')
+QuestionType.create(name: 'short answer')
+QuestionType.create(name: 'long answer')
+QuestionType.create(name: 'single choice')
