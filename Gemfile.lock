@@ -100,6 +100,8 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
+    rails-footnotes (4.1.5)
+      rails (>= 3.2)
     rails-html-sanitizer (1.0.1)
       loofah (~> 2.0)
     rails_12factor (0.0.3)
@@ -163,6 +165,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 4.2.0)
+  rails-footnotes
   rails_12factor
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

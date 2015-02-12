@@ -20,26 +20,8 @@
     <%= f.text_field :description %>
   </div>
 
-  <%= f.fields_for :questions do |q| %>
-    <div class="question_fields">
-      <div>
-        <%= q.label :question_type_id %><br>
-        <%= q.collection_select :question_type_id, @question_types, :id, :name %>
-      </div>
-      <div class="field">
-        <%= q.label :text %><br>
-        <%= q.text_area :text %>
-      </div>
-      <div class="field">
-        <%= q.label :question_description %><br>
-        <%= q.text_field :description %>
-      </div>
-      <div class="field">
-        <%= q.label :order_number %><br>
-        <%= q.number_field :order_number %>
-      </div>
-    </div>
-  <% end %>
+  <%= render :partial => 'short_answer', :locals =>{:f => f} %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
