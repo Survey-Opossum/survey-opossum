@@ -15,6 +15,8 @@ class SurveysController < ApplicationController
   # GET /surveys/new
   def new
     @survey = Survey.new
+    @question_types = QuestionType.all
+    @survey.questions.build
   end
 
   # GET /surveys/1/edit
@@ -29,7 +31,7 @@ class SurveysController < ApplicationController
     if @survey.save
       redirect_to @survey, notice: 'Survey was successfully created.'
     else
-      format.html render :new
+      render :new
     end
   end
 
@@ -58,6 +60,7 @@ class SurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
-      params.require(:survey).permit(:title, :description, :author_id)
+      params.require(:survey).permit(:title, :description, :author_id,
+            questions_attributes: [:id, :text, :description, :order_number, :question_type_id, :_destroy])
     end
 end

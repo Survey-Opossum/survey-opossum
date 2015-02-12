@@ -5,16 +5,16 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def logged_in?
-    unless current_user
-      redirect_to root_path
-    end
-  end
-
   def current_user
     Author.where(id: session[:id]).first
   end
 
   helper_method :current_user
+
+  def logged_in?
+    if current_user
+      redirect_to surveys_path
+    end
+  end
 
 end

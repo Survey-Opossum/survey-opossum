@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :logged_in?, except: [:destroy]
 
   def index
   end
