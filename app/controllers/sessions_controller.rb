@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def index
   end
 
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
       a = Author.find_by_email(params[:email])
         if a && a.authenticate(params[:password])
           session[:id] = a.id
-          redirect_to authors_path, notice: "You've logged in."
+          redirect_to surveys_path, notice: "You've logged in."
           return
         else
           redirect_to root_path, notice: "Wrong email or password."

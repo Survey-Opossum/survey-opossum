@@ -25,7 +25,7 @@ class SurveysController < ApplicationController
   # POST /surveys.json
   def create
     @survey = Survey.new(survey_params)
-
+    @survey.author_id = current_user.id
     if @survey.save
       redirect_to @survey, notice: 'Survey was successfully created.'
     else
@@ -47,7 +47,7 @@ class SurveysController < ApplicationController
   # DELETE /surveys/1.json
   def destroy
     @survey.destroy
-      redirect_to surveys_url, notice: 'Survey was successfully destroyed.' 
+      redirect_to surveys_url, notice: 'Survey was successfully destroyed.'
   end
 
   private
