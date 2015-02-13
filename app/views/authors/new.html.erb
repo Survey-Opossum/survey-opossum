@@ -18,11 +18,11 @@
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br>
+        <%= f.label :confirm_password %><br>
         <%= f.password_field :password_confirmation %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Create my account" %>
+        <%= f.submit "Create my account" %><%= link_to '<button type="button">Back</button>' .html_safe, root_path %>
       </div>
 <% end %>
