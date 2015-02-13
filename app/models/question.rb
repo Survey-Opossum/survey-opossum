@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
   has_many :answers
 
 
-  validates :text, presence: true
-  validates :description, presence: true
-  validates :order_number, presence: true
+  # validates :text, presence: true
+  # validates :description, presence: true
+  # validates :order_number, presence: true
 end
