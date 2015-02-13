@@ -21,6 +21,10 @@
   </div>
 
   <%= render :partial => 'short_answer', :locals =>{:f => f} %>
+  <p>
+    <%= f.check_box :_destroy %>
+    <%= f.label :_destroy, "delete question" %>
+  </p>
 
   <div class="actions">
     <%= f.submit %>
