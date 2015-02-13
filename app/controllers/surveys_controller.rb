@@ -34,6 +34,7 @@ class SurveysController < ApplicationController
   # POST /surveys
   # POST /surveys.json
   def create
+    puts params
     @survey = Survey.new(survey_params)
     @survey.author_id = current_user.id
     if @survey.save

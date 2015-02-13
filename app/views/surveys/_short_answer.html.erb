@@ -3,6 +3,7 @@
 <%= f.fields_for :questions do |q| %>
   <div class="question_fields">
       <%= q.hidden_field :question_type_id, :value => 2 %>
+      <%= q.check_box :required %>
     <div class="field">
       <%= q.label :text %><br>
       <%= q.text_area :text %>

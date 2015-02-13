@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150211212244) do
     t.integer  "order_number"
     t.integer  "survey_id"
     t.integer  "question_type_id"
+    t.boolean  "required"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
