@@ -6,6 +6,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :order_number
       t.integer :survey_id
       t.integer :question_type_id
+      t.boolean :required
 
       t.timestamps null: false
     end

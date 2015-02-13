@@ -1,4 +1,4 @@
-<%= form_tag surveys_thank_you_path(@survey) do  %>
+<%= form_tag thank_you_survey_path(@survey) do %>
   <% @survey.questions.each do |q|%>
     <%= q.text %><br>
     <%= q.description %>

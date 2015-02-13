@@ -2,12 +2,15 @@ Rails.application.routes.draw do
 
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-  get 'surveys/thank_you'
-  post 'surveys/thank_you'
 
   resources :authors
   resources :sessions
-  resources :surveys
+  resources :surveys do
+    member do
+      post 'thank_you'
+    end
+  end
+
   resources :questions
   resources :answers
 

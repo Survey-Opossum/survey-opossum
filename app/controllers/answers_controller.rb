@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     if @answer.save
-      redirect_to surveys_thank_you_path
+      redirect_to thank_you_survey_path
     else
       render :new
     end

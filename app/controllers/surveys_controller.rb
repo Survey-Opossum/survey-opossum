@@ -5,12 +5,19 @@ class SurveysController < ApplicationController
   # GET /surveys
   # GET /surveys.json
   def index
-    @surveys = Survey.all
+    @surveys = Survey.where(author_id: session[:id])
   end
 
   # GET /surveys/1
   # GET /surveys/1.json
   def show
+  end
+
+  def thank_you
+    @taker = Taker.create
+    params[:answer_for_question].each do |question_id , answer_text|
+      Answer.create!(text: answer_text, question_id: question_id, taker_id: @taker.id)
+    end
   end
 
   # GET /surveys/new
@@ -27,6 +34,7 @@ class SurveysController < ApplicationController
   # POST /surveys
   # POST /surveys.json
   def create
+    puts params
     @survey = Survey.new(survey_params)
     @survey.author_id = current_user.id
     if @survey.save
@@ -66,6 +74,6 @@ class SurveysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
       params.require(:survey).permit(:title, :description, :author_id,
-            questions_attributes: [:id, :text, :description, :order_number, :question_type_id, :_destroy])
+            questions_attributes: [:id, :text, :description, :order_number, :question_type_id, :required, :_destroy])
     end
 end
