@@ -92,12 +92,12 @@
   height: 2.5em;
   width: 100%;
   position: fixed;
-  top: 12.8%;
   border-top: solid 1px gray;
   z-index: 50;
   box-sizing: border-box;
   padding-left: 2em;
   padding-top: .3em;
+  margin-top: 5em;
 }
 
 .app-edit-container {
@@ -105,7 +105,7 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  top: 10.4%;
+  margin-top: 7.5em;
   overflow: auto;
   z-index: 0;
   padding: 2em;
