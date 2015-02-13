@@ -1,6 +1,41 @@
-<h1>Editing Survey</h1>
+<div class="nav-bar-top"></div>
 
-<%= render 'form' %>
+<div class="nav-bar">
 
-<%= link_to 'Show', @survey %> |
-<%= link_to 'Back', surveys_path %>
+  <div class= "login-message">
+    <% if current_user %>
+      Hello <%= current_user.name %>
+      <%= link_to "Logout", logout_path %>
+    <% end %>
+  </div>
+
+</div>
+
+<div class="side-bar">
+  <ul>
+    <li class="sidebar-survey-item">
+      Survey 1
+    </li>
+    <li class="sidebar-survey-item">
+      Survey 2
+    </li>
+    <li class="sidebar-survey-item">
+      Survey 3
+    </li>
+  </ul>
+</div>
+
+<div class="app-view-header">Survey Title</div>
+<div class="app-view-subheader">
+
+  <%= link_to 'Show', @survey %> |
+  <%= link_to 'Back', surveys_path %>
+
+
+</div>
+
+<div class="app-edit-container">
+
+  <%= render 'form' %>
+
+</div>
