@@ -1,41 +1,104 @@
-<div class="nav-bar-top"></div>
+<div class="app-view-wrapper">
 
-<div class="nav-bar">
+  <div class="nav-bar">
 
-  <div class= "login-message">
-    <% if current_user %>
-      Hello <%= current_user.name %>
-      <%= link_to "Logout", logout_path %>
-    <% end %>
+    <div class="login-message">
+      <% if current_user %>
+        Hello <%= current_user.name %>
+        <%= link_to "Logout", logout_path %>
+      <% end %>
+    </div>
+
   </div>
 
-</div>
+  <div class="side-bar">
+    <ul class="side-bar-survey-list">
+      <li class="sidebar-survey-item">
+        Survey 1
+      </li>
+      <li class="sidebar-survey-item">
+        Survey 2
+      </li>
+      <li class="sidebar-survey-item">
+        Survey 3
+      </li>
+    </ul>
+    <ul class="side-bar-survey-list">
+      <li class="sidebar-survey-item">
+        Question Type 1
+      </li>
+      <li class="sidebar-survey-item">
+        Question Type 2
+      </li>
+      <li class="sidebar-survey-item">
+        Question Type 3
+      </li>
+    </ul>
+  </div>
 
-<div class="side-bar">
-  <ul>
-    <li class="sidebar-survey-item">
-      Survey 1
-    </li>
-    <li class="sidebar-survey-item">
-      Survey 2
-    </li>
-    <li class="sidebar-survey-item">
-      Survey 3
-    </li>
-  </ul>
-</div>
+  <div class="main-container">
 
-<div class="app-view-header">Survey Title</div>
-<div class="app-view-subheader">
+    <div class="app-view-header">
+      <div class="view-header-title">Survey Title</div>
+    </div>
 
-  <%= link_to 'Show', @survey %> |
-  <%= link_to 'Back', surveys_path %>
+    <div class="app-view-subheader">
+
+      <%= link_to 'Show', @survey %> |
+      <%= link_to 'Back', surveys_path %>
+
+    </div>
+
+    <div class="app-edit-container">
+
+      <%= render 'form' %>
+
+    </div>
+
+  </div>
+  <!-- <div class="nav-bar-top"></div>
+
+  <div class="nav-bar">
+
+    <div class= "login-message">
+      <% if current_user %>
+        Hello <%= current_user.name %>
+        <%= link_to "Logout", logout_path %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="side-bar">
+    <ul>
+      <li class="sidebar-survey-item">
+        Survey 1
+      </li>
+      <li class="sidebar-survey-item">
+        Survey 2
+      </li>
+      <li class="sidebar-survey-item">
+        Survey 3
+      </li>
+    </ul>
+  </div>
+
+  <div class="app-view-header">
+    <div class="view-header-title">Survey Title</div>
+  </div>
+
+  <div class="app-view-subheader">
+
+    <%= link_to 'Show', @survey %> |
+    <%= link_to 'Back', surveys_path %>
 
 
-</div>
+  </div>
 
-<div class="app-edit-container">
+  <div class="app-edit-container">
 
-  <%= render 'form' %>
+    <%= render 'form' %>
+
+  </div> -->
 
 </div>
