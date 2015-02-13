@@ -34,6 +34,7 @@ class SurveysController < ApplicationController
   # POST /surveys
   # POST /surveys.json
   def create
+    puts params
     @survey = Survey.new(survey_params)
     @survey.author_id = current_user.id
     if @survey.save
@@ -73,6 +74,6 @@ class SurveysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
       params.require(:survey).permit(:title, :description, :author_id,
-            questions_attributes: [:id, :text, :description, :order_number, :question_type_id, :_destroy])
+            questions_attributes: [:id, :text, :description, :order_number, :question_type_id, :required, :_destroy])
     end
 end
