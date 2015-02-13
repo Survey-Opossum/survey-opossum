@@ -1,19 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @survey.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @survey.description %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @survey.author_id %>
-</p>
-
-<%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back', surveys_path %>
+<%= form_for(@answer) do |f| %>
+  <% @survey.questions.each do |q|%>
+    <%= q.text %><br>
+    <%= q.description %>
+    <div class="field">
+      <%= f.text_field :text %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit 'Submit Survey' %>
+  </div>
+<% end %>
