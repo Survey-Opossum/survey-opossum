@@ -17,6 +17,7 @@ class AuthorsController < ApplicationController
   def create
     @author = Author.new(author_params)
       if @author.save
+        flash[:success] = "Welcome to Survey Opossum!"
         redirect_to root_path, notice: 'Author was successfully created.'
       else
         render :new
