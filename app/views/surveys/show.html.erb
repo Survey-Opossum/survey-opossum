@@ -1,12 +1,12 @@
-<%= form_for(@answer) do |f| %>
+<%= form_tag surveys_thank_you_path(@survey) do  %>
   <% @survey.questions.each do |q|%>
     <%= q.text %><br>
     <%= q.description %>
     <div class="field">
-      <%= f.text_field :text %>
+      <%= text_field_tag "answer_for_question[#{q.id}]" %>
     </div>
   <% end %>
   <div class="actions">
-    <%= f.submit 'Submit Survey' %>
+    <%= submit_tag 'Submit Survey' %>
   </div>
 <% end %>
