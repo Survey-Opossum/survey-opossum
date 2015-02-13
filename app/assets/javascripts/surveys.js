@@ -10,7 +10,7 @@ jQuery(function () {
   $('.add-btn').click(function() {
     console.log('clicked');
     $('.short-answer-template:last').clone().insertBefore('.actions');
-    // $('.short-answer-template:last').removeClass('template');
+    $('.short-answer-template:last').removeClass('template');
   });
 
   // $('.edit_survey').submit(function(e) {
