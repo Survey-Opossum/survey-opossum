@@ -5,7 +5,7 @@ class SurveysController < ApplicationController
   # GET /surveys
   # GET /surveys.json
   def index
-    @surveys = Survey.all
+    @surveys = Survey.where(author_id: session[:id])
   end
 
   # GET /surveys/1
@@ -73,7 +73,6 @@ class SurveysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
       params.require(:survey).permit(:title, :description, :author_id,
-            questions_attributes: [:id, :text, :description, :order_number, :question_type_id, :_destroy],
-            answers_attributes: [:id, :text, :question_id, :taker_id, :_destroy])
+            questions_attributes: [:id, :text, :description, :order_number, :question_type_id, :_destroy])
     end
 end
