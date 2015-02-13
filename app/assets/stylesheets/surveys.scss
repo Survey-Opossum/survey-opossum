@@ -29,16 +29,6 @@
   background: #7E98B2;
 }
 
-// .nav-bar-top {
-//   background: #7E98B2;
-//   width: 90%;
-//   height: 10em;
-//   position: fixed;
-//   top: 0;
-//   left: 5%;
-//   z-index: -1;
-// }
-
 .nav-bar {
   background: #36475E;
   box-sizing: border-box;
@@ -120,4 +110,9 @@
   z-index: 0;
   padding: 2em;
   box-sizing: border-box;
+}
+
+.template {
+  // visibility: hidden;
+  display: none;
 }

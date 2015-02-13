@@ -20,7 +20,13 @@
     <%= f.text_field :description %>
   </div>
 
-  <%= render :partial => 'short_answer', :locals =>{:f => f} %>
+  <%= f.fields_for :questions do |q| %>
+    <div class="short-answer-template">
+      <%= render :partial => 'short_answer', :locals =>{:q => q} %>
+    </div>
+  <% end %>
+
+  
 
   <div class="actions">
     <%= f.submit %>
