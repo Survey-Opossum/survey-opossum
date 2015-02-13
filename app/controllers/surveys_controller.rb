@@ -13,6 +13,13 @@ class SurveysController < ApplicationController
   def show
   end
 
+  def thank_you
+    @taker = Taker.create
+    params[:answer_for_question].each do |question_id , answer_text|
+      Answer.create!(text: answer_text, question_id: question_id, taker_id: @taker.id)
+    end
+  end
+
   # GET /surveys/new
   def new
     @survey = Survey.new
@@ -66,6 +73,7 @@ class SurveysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
       params.require(:survey).permit(:title, :description, :author_id,
-            questions_attributes: [:id, :text, :description, :order_number, :question_type_id, :_destroy])
+            questions_attributes: [:id, :text, :description, :order_number, :question_type_id, :_destroy],
+            answers_attributes: [:id, :text, :question_id, :taker_id, :_destroy])
     end
 end
