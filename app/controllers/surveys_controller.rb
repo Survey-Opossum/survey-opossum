@@ -34,7 +34,6 @@ class SurveysController < ApplicationController
   # POST /surveys
   # POST /surveys.json
   def create
-    puts params
     @survey = Survey.new(survey_params)
     @survey.author_id = current_user.id
     if @survey.save
@@ -48,7 +47,7 @@ class SurveysController < ApplicationController
   # PATCH/PUT /surveys/1.json
   def update
     if @survey.update(survey_params)
-      redirect_to edit_survey_path
+      redirect_to @survey, notice: 'Survey was successfully updated.'
     else
       render :edit
     end
