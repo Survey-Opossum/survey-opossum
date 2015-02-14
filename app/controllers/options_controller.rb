@@ -37,7 +37,7 @@ class OptionsController < ApplicationController
 
   private
     def set_option
-      @option = Option.find(paramsp[:id])
+      @option = Option.find(params[:id])
     end
 
     def option_params
