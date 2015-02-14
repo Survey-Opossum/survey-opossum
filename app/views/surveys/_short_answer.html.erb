@@ -4,7 +4,7 @@
     <%= q.check_box :required %>
   <div class="field">
     <%= q.label :text %><br>
-    <%= q.text_area :text %>
+    <%= q.text_field :text %>
   </div>
   <div class="field">
     <%= q.label :question_description %><br>
@@ -13,9 +13,13 @@
   <div class="field">
     <%= q.label :order_number %><br>
     <%= q.number_field :order_number %>
-    <p>
+
+  <% if current_page?("/surveys/#{params[:id]}/edit") %>
+    <div>
       <%= q.check_box :_destroy %>
       <%= q.label :_destroy, "delete question" %>
-    </p>
+    </div>
+  <% end %>
+
   </div>
 </div>
