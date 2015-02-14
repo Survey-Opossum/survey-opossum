@@ -7,7 +7,7 @@ jQuery(function () {
     console.log('only one question');
   }
 
-  $('.add-btn').click(function() {
+  $('.add-btn').click(function(e) {
 
     var clone = $('.short-answer-template:last').clone();
     // console.log(inputArr);
@@ -78,6 +78,10 @@ jQuery(function () {
     }
 
     $('.short-answer-template:last').removeClass('template');
+
+    e.preventDefault();
+
+    return false;
   });
 
   // $('.edit_survey').submit(function(e) {
