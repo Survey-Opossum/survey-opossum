@@ -21,9 +21,11 @@
   </div>
 
   <%= f.fields_for :questions do |q| %>
-    <div class="short-answer-template">
-      <%= render :partial => 'short_answer', :locals =>{:q => q} %>
-    </div>
+    <%= q.fields_for :options do |o| %>
+      <div class="yes-no-template">
+        <%= render 'yes_no', :q => q %>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="actions">

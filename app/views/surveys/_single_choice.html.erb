@@ -2,15 +2,16 @@
 
 <%= f.fields_for :questions do |q| %>
   <%= q.fields_for :options do |o| %>
-  <div class="option_fields">
-      <%= o.hidden_field :question_id, :value => q.id %>
-    <div class="field">
-      <%= o.label :name %><br>
-      <%= o.text_field :name %>
+    <div class="option_fields">
+        <%= o.hidden_field :question_id, :value => q.id %>
+      <div class="field">
+        <%= o.label :name %><br>
+        <%= o.text_field :name %>
+      </div>
+      <div class="field">
+        <%= o.label :order_number %><br>
+        <%= o.number_field :order_number %>
+      </div>
     </div>
-    <div class="field">
-      <%= o.label :order_number %><br>
-      <%= o.number_field :order_number %>
-    </div>
-  </div>
+  <% end %>
 <% end %>

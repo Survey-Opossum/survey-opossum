@@ -3,11 +3,13 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
-  def edit
-  end
-
   def new
     @question = Question.new
+    @question.options.build
+  end
+
+  def edit
+    @question.options.build
   end
 
   def show
@@ -41,6 +43,7 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.require(:question).permit(:text , :description, :order_number, :survey_id, :question_type_id, :required)
+      params.require(:question).permit(:text, :description, :order_number, :survey_id, :question_type_id, :required,
+            options_attributes: [:id, :name, :order_number, :question_id, :_destroy])
     end
 end
