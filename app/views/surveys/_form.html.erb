@@ -24,7 +24,7 @@
       <div class="short-answer-template">
         <div class="question_fields">
           <%= q.hidden_field :order_number, :value => 0 %>
-          <%= q.collection_select :question_type_id, QuestionType.all, :id, :name %>
+          <%= q.collection_select :question_type_id, QuestionType.all, :id, :name, {include_blank: true} %>
           <div>
             <%= q.text_area:text %>
             <%= q.text_area :description %>

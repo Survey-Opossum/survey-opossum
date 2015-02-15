@@ -2,6 +2,7 @@ class SurveysController < ApplicationController
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
   before_action :set_question_types, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :taker?, except: [:show, :thank_you]
+  before_action :taken?, only: [:edit]
   # GET /surveys
   # GET /surveys.json
   def index
@@ -77,5 +78,11 @@ class SurveysController < ApplicationController
       params.require(:survey).permit(:title, :description, :author_id,
             questions_attributes: [:id, :text, :description, :order_number, :question_type_id, :required, :_destroy,
               options_attributes: [:id, :name, :order_number, :question_id, :_destroy]])
+    end
+
+    def taken?
+      if @survey.answers.any?
+        redirect_to surveys_path
+      end
     end
 end

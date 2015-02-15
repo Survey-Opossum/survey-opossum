@@ -6,8 +6,7 @@
     <%= q.text %><br>
     <%= q.description %>
     <div class="field">
-      <div hidden><%= "#{q.required}" %></div>
-      <%= hidden_field_tag "required[#{q.required}]" %>
+      <div class="required" hidden><%= "#{q.required}" %></div>
       <%= text_field_tag "answer_for_question[#{q.id}]" %>
     </div>
   <% end %>
