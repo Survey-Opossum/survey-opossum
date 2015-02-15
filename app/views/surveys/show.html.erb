@@ -1,8 +1,13 @@
+<%= @survey.title %><br>
+<%= @survey.description %>
+
 <%= form_tag thank_you_survey_path(@survey) do %>
   <% @survey.questions.each do |q|%>
     <%= q.text %><br>
     <%= q.description %>
     <div class="field">
+      <div hidden><%= "#{q.required}" %></div>
+      <%= hidden_field_tag "required[#{q.required}]" %>
       <%= text_field_tag "answer_for_question[#{q.id}]" %>
     </div>
   <% end %>

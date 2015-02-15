@@ -1,7 +1,7 @@
 class SurveysController < ApplicationController
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
   before_action :set_question_types, only: [:new, :create, :show, :edit, :update, :destroy]
-
+  before_action :taker?, except: [:show, :thank_you]
   # GET /surveys
   # GET /surveys.json
   def index

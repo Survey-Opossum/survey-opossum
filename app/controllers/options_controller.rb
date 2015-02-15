@@ -1,4 +1,5 @@
 class OptionsController < ApplicationController
+  before_action :taker?
   def index
     @options = Option.all
   end

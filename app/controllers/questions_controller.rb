@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :taker?, except: [:show]
+  
   def index
     @questions = Question.all
   end

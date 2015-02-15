@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+  before_action :taker?, except: [:new, :create]
 
   def index
     @authors = Author.all
