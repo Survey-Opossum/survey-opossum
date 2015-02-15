@@ -9,12 +9,17 @@ $(function () {
 
   $('.add-btn').click(function(e) {
 
+    $('.short-answer-template:last').removeClass('template');
+
     var clone = $('.short-answer-template:last').clone();
+
+    clone.addClass('template');
 
     clone.insertBefore('.actions');
 
     var questionFieldInputs = $(".short-answer-template:last > .question_fields");
     var inputArr = $('input', questionFieldInputs);
+    var selectArr = $('select', questionFieldInputs);
     var fieldsArr = $('.field', questionFieldInputs);
     var labelArr = $('label', questionFieldInputs);
     var textareaArr = $('textarea', questionFieldInputs);
@@ -77,7 +82,25 @@ $(function () {
       }
     }
 
-    $('.short-answer-template:last').removeClass('template');
+    for (i = 0; i < selectArr.length; i++) {
+      if (selectArr[i].id) {
+        var str = selectArr[i].id;
+        var patt1 = /\d+/g;
+        var result = str.match(patt1);
+
+        result = Number(result) + 1;
+        selectArr[i].id = str.replace(str.match(patt1), result);
+        selectArr[i].value = '';
+      }
+      if (selectArr[i].name) {
+        var str = selectArr[i].name;
+        var patt1 = /\d+/g;
+        var result = str.match(patt1);
+
+        result = Number(result) + 1;
+        selectArr[i].name = str.replace(str.match(patt1), result);
+      }
+    }
 
     e.preventDefault();
 

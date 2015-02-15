@@ -20,31 +20,37 @@
     <%= f.text_field :description %>
   </div>
 
-  <%= f.fields_for :questions do |q| %>
-    <%= q.hidden_field :order_number, :value => 0 %>
-    <%= q.collection_select :question_type_id, QuestionType.all, :id, :name %>
-    <div>
-      <%= q.text_area:text %>
-      <%= q.text_area :description %>
-    </div>
-    <div class="option">
-      <%= q.fields_for :options do |o| %>
-      <%= o.hidden_field :order_number, :value => 0 %>
-      <%= o.text_field :name %>
-      <% end %>
-    </div>
-    <% if current_page?("/surveys/#{params[:id]}/edit") %>
-      <div>
-        <%= q.check_box :_destroy %>
-        <%= q.label :_destroy, "delete question" %><br>
-        <%= q.check_box :required %>
-        <%= q.label :required, "require" %>
+    <%= f.fields_for :questions do |q| %>
+      <div class="short-answer-template">
+        <div class="question_fields">
+          <%= q.hidden_field :order_number, :value => 0 %>
+          <%= q.collection_select :question_type_id, QuestionType.all, :id, :name %>
+          <div>
+            <%= q.text_area:text %>
+            <%= q.text_area :description %>
+          </div>
+          <div class="option" hidden>
+            <%= q.fields_for :options do |o| %>
+            <%= o.hidden_field :order_number, :value => 0 %>
+            <%= o.text_field :name %>
+            <% end %>
+          </div>
 
-        <div class="arrow-up">Up</div>
-        <div class="arrow-down">Down</div>
+          <% if current_page?("/surveys/#{params[:id]}/edit") %>
+
+          <div>
+            <%= q.check_box :_destroy %>
+            <%= q.label :_destroy, "delete question" %><br>
+            <%= q.check_box :required %>
+            <%= q.label :required, "require" %>
+
+            <div class="arrow-up">Up</div>
+            <div class="arrow-down">Down</div>
+          </div>
+            <% end %>
+        </div>
       </div>
     <% end %>
-  <% end %>
 
   <div class="actions">
     <%= f.submit %>
