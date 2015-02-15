@@ -23,6 +23,8 @@
   <%= f.fields_for :questions do |q| %>
     <div class="short-answer-template">
       <%= render :partial => 'short_answer', :locals =>{:q => q} %>
+      <div class="arrow-up">Up</div>
+      <div class="arrow-down">Down</div>
     </div>
   <% end %>
 

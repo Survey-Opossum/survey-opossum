@@ -112,7 +112,37 @@
   box-sizing: border-box;
 }
 
+.question_fields input {
+  width: 100%;
+  height: 50px;
+}
+
+.short-answer-template {
+  background: #EFF2F8;
+  padding: 2em;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-top: 2em;
+  margin-right: 15em;
+}
+
 .template {
   // visibility: hidden;
   display: none;
+}
+
+.arrow-up {
+  width: 3em;
+  height: 3em;
+  background: green;
+  display: inline-block;
+  text-align: center;
+}
+
+.arrow-down {
+  width: 3em;
+  height: 3em;
+  background: red;
+  display: inline-block;
+  text-align: center;
 }
