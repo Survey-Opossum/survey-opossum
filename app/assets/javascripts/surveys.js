@@ -7,7 +7,7 @@ $(function () {
     console.log('only one question');
   }
 
-  $('.add-btn').click(function() {
+  $('.add-btn').click(function(e) {
 
     var clone = $('.short-answer-template:last').clone();
 
@@ -78,6 +78,10 @@ $(function () {
     }
 
     $('.short-answer-template:last').removeClass('template');
+
+    e.preventDefault();
+
+    return false;
   });
 
   $('.arrow-up').click(function(e) {

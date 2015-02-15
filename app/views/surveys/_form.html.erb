@@ -12,20 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :survey_title %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :survey_description %><br>
     <%= f.text_field :description %>
   </div>
 
   <%= f.fields_for :questions do |q| %>
-    <div class="short-answer-template">
-      <%= render :partial => 'short_answer', :locals =>{:q => q} %>
-      <div class="arrow-up">Up</div>
-      <div class="arrow-down">Down</div>
-    </div>
+      <div class="short-answer-template">
+        <%= render 'short_answer', :q => q %>
+
+        <div class="arrow-up">Up</div>
+        <div class="arrow-down">Down</div>
+      </div>
   <% end %>
 
   <div class="actions">

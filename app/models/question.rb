@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
 
   accepts_nested_attributes_for :options,
     :allow_destroy => :true,
-    :reject_if => :all_blank
+    :reject_if => proc { |attributes| attributes['name'].blank?}
   # validates :text, presence: true
   # validates :description, presence: true
   # validates :order_number, presence: true
