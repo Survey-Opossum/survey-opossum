@@ -12,20 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :survey_title %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :survey_description %><br>
     <%= f.text_field :description %>
   </div>
 
   <%= f.fields_for :questions do |q| %>
-    <%= q.fields_for :options do |o| %>
       <div class="short-answer-template">
-        <%= render 'yes_no', :q => q, :o => o %>
+        <%= render 'short_answer', :q => q %>
       </div>
-    <% end %>
   <% end %>
 
   <div class="actions">
