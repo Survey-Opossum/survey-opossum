@@ -15,7 +15,7 @@ class SurveysController < ApplicationController
   end
 
   def results
-    @survey = Survey.new
+    @survey = Survey.find(params[:id])
   end
 
   def thank_you
