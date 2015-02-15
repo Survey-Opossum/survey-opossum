@@ -18,10 +18,27 @@ class SurveysController < ApplicationController
     @survey = Survey.find(params[:id])
   end
 
+  # @taker = Taker.create
+  #     params[:answer_for_question].each do |question_id , answer_text|
+  #       Answer.create!(text: answer_text, question_id: question_id, taker_id: @taker.id)
+  #     end
+
+
   def thank_you
-    @taker = Taker.create
+    should_i_render = false
     params[:answer_for_question].each do |question_id , answer_text|
-      Answer.create!(text: answer_text, question_id: question_id, taker_id: @taker.id)
+      if answer_text.blank? && Question.find(question_id).required
+        should_i_render = true
+      end
+    end
+    if should_i_render
+      @survey = Survey.find(params[:id])
+      render :show
+    else
+      @taker = Taker.create
+      params[:answer_for_question].each do |question_id , answer_text|
+        Answer.create!(text: answer_text, question_id: question_id, taker_id: @taker.id)
+      end
     end
   end
 
