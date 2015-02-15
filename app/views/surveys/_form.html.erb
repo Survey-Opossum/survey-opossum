@@ -35,19 +35,20 @@
             <%= o.text_field :name %>
             <% end %>
           </div>
+          <div>
+            <%= q.check_box :required %>
+            <%= q.label :required, "require" %>
+          </div>
 
           <% if current_page?("/surveys/#{params[:id]}/edit") %>
 
-          <div>
-            <%= q.check_box :_destroy %>
-            <%= q.label :_destroy, "delete question" %><br>
-            <%= q.check_box :required %>
-            <%= q.label :required, "require" %>
-
-            <div class="arrow-up">Up</div>
-            <div class="arrow-down">Down</div>
-          </div>
-            <% end %>
+            <div>
+              <%= q.check_box :_destroy %>
+              <%= q.label :_destroy, "delete question" %><br>
+              <div class="arrow-up">Up</div>
+              <div class="arrow-down">Down</div>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>
