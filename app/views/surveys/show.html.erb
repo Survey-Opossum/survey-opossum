@@ -1,10 +1,27 @@
+<%= @survey.title %><br>
+<%= @survey.description %>
+
 <%= form_tag thank_you_survey_path(@survey) do %>
   <% @survey.questions.each do |q|%>
     <%= q.text %><br>
-    <%= q.description %>
-    <div class="field">
+    <%= q.description %><br>
+    <% if q.question_type_id == 1 %>
+      <div class="required" hidden><%= "#{q.required}" %></div>
+      <% q.options.each do |o| %>
+        <%= radio_button_tag "answer_for_question[#{q.id}]", "#{o.name}" %><span><%= "#{o.name}" %></span>
+      <% end %>
+    <% elsif q.question_type_id == 2 %>
+      <div class="required" hidden><%= "#{q.required}" %></div>
       <%= text_field_tag "answer_for_question[#{q.id}]" %>
-    </div>
+    <% elsif q.question_type_id == 3 %>
+      <div class="required" hidden><%= "#{q.required}" %></div>
+      <%= text_area_tag "answer_for_question[#{q.id}]" %>
+    <% elsif q.question_type_id == 4 %>
+      <div class="required" hidden><%= "#{q.required}" %></div>
+      <% q.options.each do |o| %>
+      <%= radio_button_tag "answer_for_question[#{q.id}]", "#{o.name}" %><span><%= "#{o.name}" %></span>
+      <% end %>
+    <% end %>
   <% end %>
   <div class="actions">
     <%= submit_tag 'Submit Survey' %>

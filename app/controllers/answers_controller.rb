@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  before_action :taker?, except: [:show]
   def index
   end
 

@@ -12,21 +12,47 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :survey_title %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :survey_description %><br>
     <%= f.text_field :description %>
   </div>
 
-  <%= f.fields_for :questions do |q| %>
-    <%= q.fields_for :options do |o| %>
-      <div class="yes-no-template">
-        <%= render 'yes_no', :q => q, :o => o %>
+    <%= f.fields_for :questions do |q| %>
+      <div class="short-answer-template">
+        <div class="question_fields">
+          <%= q.hidden_field :order_number, :value => 0 %>
+          <%= q.collection_select :question_type_id, QuestionType.all, :id, :name, {include_blank: true} %>
+          <div>
+            <%= q.text_area:text %>
+            <%= q.text_area :description %>
+          </div>
+          <div class="option">
+            <%= q.hidden_field :order_number, :value => 0 %>
+            <%= q.fields_for :options do |o| %>
+            <%= o.hidden_field :order_number, :value => 0 %>
+            <%= o.text_field :name %>
+            <% end %>
+          </div>
+          <div>
+            <%= q.check_box :required %>
+            <%= q.label :required, "require" %>
+          </div>
+
+          <% if current_page?("/surveys/#{params[:id]}/edit") %>
+
+            <div>
+              <%= q.check_box :_destroy %>
+              <%= q.label :_destroy, "delete question" %><br>
+              <div class="arrow-up">Up</div>
+              <div class="arrow-down">Down</div>
+            </div>
+          <% end %>
+        </div>
       </div>
     <% end %>
-  <% end %>
 
   <div class="actions">
     <%= f.submit %>
