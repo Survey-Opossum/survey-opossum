@@ -1,19 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'options/index'
-
-  get 'options/show'
-
-  get 'options/new'
-
-  get 'options/edit'
-
-  get 'options/create'
-
-  get 'options/update'
-
-  get 'options/destroy'
-
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
@@ -22,6 +8,7 @@ Rails.application.routes.draw do
   resources :surveys do
     member do
       post 'thank_you'
+      get 'results'
     end
   end
 

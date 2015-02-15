@@ -13,6 +13,10 @@ class SurveysController < ApplicationController
   def show
   end
 
+  def results
+    @survey = Survey.new
+  end
+
   def thank_you
     @taker = Taker.create
     params[:answer_for_question].each do |question_id , answer_text|
@@ -63,6 +67,9 @@ class SurveysController < ApplicationController
   end
 
   private
+    # def check_logged_in
+    #   redirect_to sessions_
+    # end
     # Use callbacks to share common setup or constraints between actions.
     def set_survey
       @survey = Survey.find(params[:id])
@@ -76,6 +83,7 @@ class SurveysController < ApplicationController
     def survey_params
       params.require(:survey).permit(:title, :description, :author_id,
             questions_attributes: [:id, :text, :description, :order_number, :question_type_id, :required, :_destroy,
-              options_attributes: [:id, :name, :order_number, :question_id, :_destroy]])
+              options_attributes: [:id, :name, :order_number, :question_id, :_destroy,
+                results_attributes: [:survey_id]]])
     end
 end

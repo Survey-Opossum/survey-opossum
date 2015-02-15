@@ -23,7 +23,7 @@
   <%= f.fields_for :questions do |q| %>
     <%= q.fields_for :options do |o| %>
       <div class="yes-no-template">
-        <%= render 'yes_no', :q => q %>
+        <%= render 'yes_no', :q => q, :o => o %>
       </div>
     <% end %>
   <% end %>

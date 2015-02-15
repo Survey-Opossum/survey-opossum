@@ -8,6 +8,5 @@ class Question < ActiveRecord::Base
     :allow_destroy => :true,
     :reject_if => :all_blank
   # validates :text, presence: true
-  # validates :description, presence: true
   # validates :order_number, presence: true
 end

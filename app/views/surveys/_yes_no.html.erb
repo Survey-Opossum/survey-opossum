@@ -23,5 +23,12 @@
     <div class="field">
       <%= o.label :order_number %><br>
       <%= o.number_field :order_number %>
-    </div>
+
+      <% if current_page?("/surveys/#{params[:id]}/edit") %>
+      <div>
+        <%= q.check_box :_destroy %>
+        <%= q.label :_destroy, "delete question" %>
+      </div>
+    <% end %>
   </div>
+</div>
