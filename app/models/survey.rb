@@ -5,7 +5,6 @@ class Survey < ActiveRecord::Base
   has_many :answers, through: :questions
 
   validates :title, presence: true
-  validates :description, presence: true
 
 
   accepts_nested_attributes_for :questions,

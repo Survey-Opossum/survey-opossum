@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Surveys</h1>
+<h1>My Surveys</h1>
 
 <% if current_user %>
   Hello, <%= current_user.name %>
@@ -26,6 +26,7 @@
         <td><%= link_to 'Show', survey %></td>
         <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
         <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Results', results_survey_path(survey) %></td>
       </tr>
     <% end %>
   </tbody>
