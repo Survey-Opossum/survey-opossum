@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :surveys do
     member do
       post 'thank_you'
+      get 'results'
     end
   end
 

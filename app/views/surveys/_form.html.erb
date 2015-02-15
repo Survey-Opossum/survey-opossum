@@ -30,7 +30,6 @@
             <%= q.text_area :description %>
           </div>
           <div class="option">
-            <%= q.hidden_field :order_number, :value => 0 %>
             <%= q.fields_for :options do |o| %>
             <%= o.hidden_field :order_number, :value => 0 %>
             <%= o.text_field :name %>
