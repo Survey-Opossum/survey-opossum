@@ -9,6 +9,6 @@ class Question < ActiveRecord::Base
     :reject_if => proc { |attributes| attributes['name'].blank?}
     # :reject_if => proc { |attributes| attributes['order_number'].blank?}
 
-  # validates :text, presence: true
+  validates :text, presence: true
   # validates :order_number, presence: true
 end
